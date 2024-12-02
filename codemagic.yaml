@@ -1,0 +1,18 @@
+workflows:
+  ios-workflow:
+    name: iOS Workflow
+    environment:
+      xcode: latest
+    scripts:
+      - name: Set up dependencies
+        script: |
+          echo "No additional dependencies needed"
+      - name: Build the app
+        script: |
+          xcodebuild -project MyApp.xcodeproj \
+                     -scheme DepAnx \
+                     -sdk iphoneos \
+                     -configuration Release \
+                     clean build
+    artifacts:
+      - build/ios/Release-iphoneos/*.ipa
